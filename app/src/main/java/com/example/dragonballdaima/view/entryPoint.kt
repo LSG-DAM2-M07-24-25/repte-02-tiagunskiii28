@@ -9,6 +9,6 @@ import com.example.dragonballdaima.viewModel.viewModel
 
 @Composable
 fun entryPoint(navigationController: NavController){
-    val myViewModel: viewModel = viewModel()
-    
+    val myViewModel: viewModel = viewModel() //tt
+
 }
