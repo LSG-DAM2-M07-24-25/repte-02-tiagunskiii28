@@ -11,4 +11,4 @@ import com.example.dragonballdaima.viewModel.viewModel
 fun entryPoint(navigationController: NavController){
     val myViewModel: viewModel = viewModel() //tt
 
-}
+}//aa
