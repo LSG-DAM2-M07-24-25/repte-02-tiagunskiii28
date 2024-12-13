@@ -9,4 +9,18 @@ class viewModel : ViewModel() {
 
     private val _personajeSeleccionado = MutableLiveData(dragonBall.getPersonajeSeleccionado())
     val personajeSeleccionado: MutableLiveData<String> = _personajeSeleccionado
+
+    private val _nombre = MutableLiveData(dragonBall.getNombre())
+    val nombre: MutableLiveData<String> = _nombre
+
+    fun elegirPersonaje(image: String){
+        dragonBall.setPersonajeSeleccionado(image)
+    }
+    fun elegiNombre(nom: String){
+        dragonBall.setPersonajeSeleccionado(nom)
+    }
+    fun update(){
+        _personajeSeleccionado.value = dragonBall.getPersonajeSeleccionado()
+        _nombre.value = dragonBall.getNombre()
+    }
 }

@@ -9,4 +9,12 @@ data class dragonBall(
     private var personajeSeleccionado: String = "defecto"
 
     fun getPersonajeSeleccionado(): String = personajeSeleccionado
+    fun getNombre(): String = nom
+    fun setPersonajeSeleccionado (personaje: String){
+        personajeSeleccionado = personaje
+    }
+    fun setNombre(nombre: String){
+        nom = nombre
+    }
+
 }

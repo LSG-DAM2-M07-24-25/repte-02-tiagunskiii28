@@ -36,7 +36,6 @@ import com.example.dragonballdaima.viewModel.viewModel
 fun personatge(myviewModel : viewModel, navController: NavController){
     val iconoAplicacion = painterResource(id = R.drawable.dragonball_daima_logo)
     val scrollState = rememberScrollState()
-    val personajeSeleccionado by myviewModel.personajeSeleccionado.observeAsState()
     val keys = listOf(
         listOf(R.drawable.gomah, R.drawable.goku, R.drawable.vegeta),
         listOf(R.drawable.piccolo, R.drawable.supreme, R.drawable.masked_majin),
@@ -72,7 +71,19 @@ fun personatge(myviewModel : viewModel, navController: NavController){
                         ) {
                             Image(
                                 painter = painterResource(id = key),
-                                contentDescription = "Imagen"
+                                contentDescription = "Imagen",
+                                modifier = Modifier.clickable(
+                                    onClick = {
+                                        when(key){
+                                            R.drawable.goku -> myviewModel.elegirPersonaje("Goku")
+                                            R.drawable.vegeta -> myviewModel.elegirPersonaje("Vegeta")
+                                            R.drawable.gomah -> myviewModel.elegirPersonaje("Gomah")
+                                            R.drawable.piccolo -> myviewModel.elegirPersonaje("Piccolo")
+                                            R.drawable.masked_majin -> myviewModel.elegirPersonaje("Masked Majin")
+                                            R.drawable.supreme -> myviewModel.elegirPersonaje("Supreme")
+                                        }
+                                    }
+                                )
                             )
                         }
                     }

@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,6 +14,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -27,6 +30,8 @@ import com.example.dragonballdaima.viewModel.viewModel
 fun resultat(myviewModel : viewModel, navController: NavController){
     val iconoAplicacion = painterResource(id = R.drawable.dragonball_daima_logo)
     val scrollState = rememberScrollState()
+    val personajeSeleccionado by myviewModel.personajeSeleccionado.observeAsState()
+    val nombreSeleccionado by myviewModel.nombre.observeAsState()
 
     Box(
         modifier = Modifier
@@ -48,6 +53,11 @@ fun resultat(myviewModel : viewModel, navController: NavController){
                     .padding(30.dp),
                 contentScale = ContentScale.Fit
             )
+            Row(){
+                Text(text = "$nombreSeleccionado ")
+                Text(text = "$personajeSeleccionado")
+            }
+
             Button(
                 onClick = {
                     navController.navigate(Routes.personatge.route)
